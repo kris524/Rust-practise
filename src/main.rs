@@ -6,19 +6,15 @@ use rand::Rng;
 fn main() {
     let mut rng = rand::thread_rng();
 
-    // let x: u8 = rng.gen();
-    // let y: u32 = rng.gen_range(1..3);
-    // println!("x = {}", x);
-    // println!("y = {}", y);
-    // exercism1::sublist_checker( &[1,2,3], &[1,2,3,4]);
+    let arr = [50,62,13,43];
+    println!("{:?}", arr);
+
+    let vector: Vec<i32> = (3..5).collect();
+
+    println!("{:?}", vector);
+
+    let macro_vector = vec![5,3,6,3,55,2];
+    println!("{:?}", macro_vector)
 }
 
-
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2+2, 4)
-    }
-}
 
