@@ -21,24 +21,20 @@ impl fmt::Display for Clock {
 }
 
 impl Clock {
-    fn new( hours: i32, minutes: i32) -> Self {
-        let total_minutes: i32 = (((hours * 60 + minutes)% MAX_MINUTES) + MAX_MINUTES) % MAX_MINUTES;
+    pub fn new( hour: i32, minutes: i32) -> Self {
+        let total_minutes: i32 = (((hour * 60 + minutes)% MAX_MINUTES) + MAX_MINUTES) % MAX_MINUTES;
         Clock {
             hour: total_minutes/MINS_IN_HOUR,
             minutes: total_minutes % MINS_IN_HOUR
         }
     }
 
+    pub fn add_minutes(&self, minutes:i32 ) -> Self{
+        Clock::new( self.hour, self.minutes + minutes)
+    }
+
 }
-    // fn new(hour: i32, minutes: i32, ) -> Self {
-    //     if hour < 10 {
-    //         write!(f, "0{}:{}", hour, minutes)
-    
-    //     }
-    //     else {
-    //             write!(f, "{}:{}", hour, minutes)
-    //         }
-    
+
 
     
     
