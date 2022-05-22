@@ -6,7 +6,7 @@ const MAX_MINUTES: i32 = 24* 60;
 
 
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub struct Clock{
     hour: i32,
     minutes: i32
@@ -40,8 +40,8 @@ impl Clock {
     
 
 
-#[test]
-fn test_on_the_hour() {
-    // assert_eq!(format!("{}", Clock {hour: 12, minutes: 32}), "04:32");
-    assert_eq!(Clock::new(8, 32).to_string(), "08:32");
-}
+// #[test]
+// fn test_on_the_hour() {
+//     // assert_eq!(format!("{}", Clock {hour: 12, minutes: 32}), "04:32");
+//     assert_eq!(Clock::new(8, 32).to_string(), "08:32");
+// }
