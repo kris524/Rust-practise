@@ -5,18 +5,31 @@ use std::collections::HashMap;
 
 // use Rust_workshop::part1 as p1;
 
+
 fn main() {
-    type Slot<K, V> = Option< ((K, V), usize)>;
-    struct MyHashMap<T> {
-        key: T,
-        value: T,
+    #[derive(Debug)]
+    struct MyHashMap<Key, Value> {
+        kvs: Vec<(Key, Value)>
     }
 
-    impl MyHashMap {
+    impl<Key: Default + Clone, Value: Default + Clone> MyHashMap<Key, Value> {
 
-        fn new(self ,key: T, value: T) {
-            MyHashMap {key, value};
+        fn new() -> Self {  
+            // MyHashMap {kvs: };
+            const INITIAL_CAPACITY: usize = 64;
+            Self {
+                kvs: vec![(Key::default(), Value::default()); INITIAL_CAPACITY],
+            }
         }
+
+        fn insert( key: Key, value: Value){
+            todo!()
+        }
+        fn get(key: &Key) -> &Value{
+            todo!()
+        }
+
+
 
     }
 
