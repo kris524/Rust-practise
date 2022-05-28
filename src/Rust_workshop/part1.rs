@@ -2,8 +2,12 @@
 
 use std::collections::HashMap;
 
-pub fn MyHash() {
+#[cfg(test)]
+pub mod tests {
     
+    use super::*;
+    #[test]
+    fn it_works(){
     // create a new HashMap
     let mut map = HashMap::new();
 
@@ -24,5 +28,6 @@ pub fn MyHash() {
     // once it no longer exists in the map, it should return None
     assert_eq!(map.get(&"foo"), None);
     println!("All tests passed")
+    }
 
 }
