@@ -1,18 +1,35 @@
 mod Rust_workshop;
+mod chapter_10;
 
-
+use chapter_10::Pair;
 use std::collections::HashMap;
 
 // use Rust_workshop::part1 as p1;
 
 
 fn main() {
+    // try out the traits and generics in rust (chapter 10)
+    let a = Pair::new(50, 11);
+
+    a.cmp_dispay();
+
+    // Build a HashMap from scratch
+
+    trait Hashable {
+        fn hash(value: Self) -> usize;   
+    }
+
+
     #[derive(Debug)]
     struct MyHashMap<Key, Value> {
         kvs: Vec<(Key, Value)>
     }
 
-    impl<Key: Default + Clone, Value: Default + Clone> MyHashMap<Key, Value> {
+    impl<Key, Value> MyHashMap<Key, Value> 
+        where Key: Default + Clone + Hashable,
+              Value: Default + Clone,
+
+    {
 
         fn new() -> Self {  
             // MyHashMap {kvs: };
