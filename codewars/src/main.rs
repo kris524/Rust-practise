@@ -1,10 +1,15 @@
 
 fn digitize(n: u64) -> Vec<u8> {
     
- let x = 10;
+    let mut digits = Vec::new();
+
+    
+
+ 
 
 }
 
 fn main() {
-    println!("Hello, world!");
+    let x = 9 % 10;
+    println!("{}",x);
 }
