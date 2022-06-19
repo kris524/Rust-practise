@@ -51,7 +51,7 @@ fn main() {
             email: "john@smith.com".to_string(),
         },
     ];
-
+   
     let unique_contacts: HashMap<String, String> = imported_contacts
     .into_iter()
     .map(|contact| (contact.email.clone(), contact.name))
