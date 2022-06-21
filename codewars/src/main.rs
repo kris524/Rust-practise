@@ -16,7 +16,7 @@ fn digitize(n: u64) -> Vec<u8> {
     digits
  
 }
-
+ 
 
 fn answer_digitize(n: u64) -> Vec<u8>{
 
