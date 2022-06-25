@@ -17,7 +17,7 @@ fn digitize(n: u64) -> Vec<u8> {
  
 }
  
-
+ 
 fn answer_digitize(n: u64) -> Vec<u8>{
 
     n.to_string().chars().map(|c| c.to_digit(10).unwrap() as u8 ).rev().collect()
@@ -29,7 +29,7 @@ fn set_alarm(employed: bool, vacation: bool) -> bool {
         
         employed && !vacation
 }
-
+  
 fn main() {
     // println!("{:?}", answer_digitize(234324));
     println!("{:?}", digitize(35231));
