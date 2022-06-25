@@ -29,7 +29,7 @@ fn set_alarm(employed: bool, vacation: bool) -> bool {
         
         employed && !vacation
 }
-
+  
 fn main() {
     // println!("{:?}", answer_digitize(234324));
     println!("{:?}", digitize(35231));
