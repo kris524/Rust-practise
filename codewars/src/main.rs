@@ -29,8 +29,15 @@ fn set_alarm(employed: bool, vacation: bool) -> bool {
         
         employed && !vacation
 }
+
+fn lovefunc(flower1: u16, flower2: u16) -> bool {
+    
+    (flower1 + flower2) % 2 != 0
+
+}
   
 fn main() {
+    println!("{}", )
     // println!("{:?}", answer_digitize(234324));
     println!("{:?}", digitize(35231));
 
