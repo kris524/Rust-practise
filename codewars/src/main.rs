@@ -46,17 +46,22 @@ fn how_much_i_love_you(mut nb_petals: u16) -> &'static str {
     vec1[(nb_petals-1) as usize]
 }
 
+fn boolean_to_string(b: bool) -> String {
+
+}
+
 #[cfg(test)]
 mod tests {
-    use super::how_much_i_love_you;
+    use super::*;
 
     #[test]
-    fn fixed_tests() {
-        assert_eq!(how_much_i_love_you(7), "I love you");
-        assert_eq!(how_much_i_love_you(3), "a lot");
-        assert_eq!(how_much_i_love_you(6), "not at all");
+    fn example() {
+        assert_eq!(boolean_to_string(true), "true", "When we pass in true, we want the string \"true\" as output");
+        assert_eq!(boolean_to_string(false), "false", "When we pass in false, we want the string \"false\" as output");
+        assert_eq!(boolean_to_string(false), "false", "When we pass in false, we want the string \"false\" as output");
     }
 }
+
 
 
 
