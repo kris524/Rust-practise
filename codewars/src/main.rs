@@ -47,12 +47,38 @@ fn how_much_i_love_you(mut nb_petals: u16) -> &'static str {
 }
 
 fn boolean_to_string(b: bool) -> String {
-    if b {
-        return String::from("true");
+    match b {
+        true => String::from("true"),
+        false => String::from("false")
     }
-    else {
-        return String::from("false")
-    }
+}
+
+use std::mem;
+
+fn dna_to_rna(dna: &str) -> String {
+        // let mut my_chars: Vec<_> = dna.chars().collect();
+        // dna.chars().map( |c| match c {'T' => 'U', k=>k}).collect()
+
+        dna.replace("U", "T")
+
+}
+
+
+fn positive_sum(slice: &[i32]) -> i32 {
+    // your code
+    0
+}
+
+
+
+
+
+  
+fn main() {
+   
+    // println!("{:?}", answer_digitize(234324));
+    println!("{:?}", dna_to_rna("TREE"));
+
 }
 
 
@@ -67,18 +93,21 @@ mod tests {
         assert_eq!(boolean_to_string(false), "false", "When we pass in false, we want the string \"false\" as output");
         assert_eq!(boolean_to_string(false), "false", "When we pass in false, we want the string \"false\" as output");
     }
-}
 
-
-
-
-  
-fn main() {
-   
-    // println!("{:?}", answer_digitize(234324));
-    println!("{:?}", digitize(35231));
-
-    let a = set_alarm(true, true);
-    println!("{}", a);
+    #[test]
+    fn some_examples() {
+        assert_eq!(positive_sum(&[1,2,3,4,5]), 15);
+        assert_eq!(positive_sum(&[1,-2,3,4,5]), 13);
+        assert_eq!(positive_sum(&[-1,2,3,4,-5]), 9);
+    }
     
+    #[test]
+    fn empty_list() {
+        assert_eq!(positive_sum(&[]), 0);
+    }
+    
+    #[test]
+    fn all_negative() {
+        assert_eq!(positive_sum(&[-1,-2,-3,-4,-5]), 0);
+    }  
 }
