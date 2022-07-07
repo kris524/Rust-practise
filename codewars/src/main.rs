@@ -64,9 +64,24 @@ fn dna_to_rna(dna: &str) -> String {
 }
 
 
-fn positive_sum(slice: &[i32]) -> i32 {
+fn positive_sum(slice: &[i32]) ->  i32 {
+
+
+    //better solution
+    slice.iter().filter(|&x| x.is_positive()).sum()
+
     // your code
-    0
+    // let mut positive_nums = vec![];
+
+    // for &num in slice {
+    //     if num > 0 {
+    //         positive_nums.push(num);
+    //     }
+    //     else {
+    //         continue;
+    //     }
+    // }
+    // return positive_nums.iter().sum()
 }
 
 
