@@ -63,6 +63,10 @@ fn dna_to_rna(dna: &str) -> String {
 
 }
 
+fn make_upper_case(s: &str) -> String {
+    s.to_uppercase()
+}
+
 
 fn positive_sum(slice: &[i32]) ->  i32 {
 
@@ -124,5 +128,11 @@ mod tests {
     #[test]
     fn all_negative() {
         assert_eq!(positive_sum(&[-1,-2,-3,-4,-5]), 0);
-    }  
+    }
+
+    #[test]
+    fn test_make_upper_case() {
+        assert_eq!(make_upper_case("hello"), "HELLO");
+    }
 }
+
