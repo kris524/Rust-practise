@@ -66,8 +66,34 @@ fn dna_to_rna(dna: &str) -> String {
 fn make_upper_case(s: &str) -> String {
     s.to_uppercase()
 }
+fn bmi(weight: u32, height: f32) -> &'static str {
+    let h2 = height * height;
+    let bmi = (weight as f32) / h2;
+    match bmi {
+        0.0..=18.5 => "Underweight",
+        18.6..=25.0 => "Normal",
+        25.1..=30.0 => "Overweight",
+        _ => "Obese"
+    } 
+}
+fn solution(word: &str, ending: &str) -> bool {
 
+    let a = ending.len();
+    let b = word.len();
+    if (a > b) {
+        return false
+    }
+    let section = &word[(b-a)..];
+    println!("{} {}", section, a);
+    if section == ending{
+         true
+    }
+    
+    else {
+         false
+    }
 
+}
 fn positive_sum(slice: &[i32]) ->  i32 {
 
 
@@ -89,14 +115,12 @@ fn positive_sum(slice: &[i32]) ->  i32 {
 }
 
 
-
-
-
   
 fn main() {
    
     // println!("{:?}", answer_digitize(234324));
     println!("{:?}", dna_to_rna("TREE"));
+    println!("{:?}", solution("abc", "c"));
 
 }
 
@@ -134,5 +158,20 @@ mod tests {
     fn test_make_upper_case() {
         assert_eq!(make_upper_case("hello"), "HELLO");
     }
+
+    #[test]
+    fn basic_tests() {
+        assert_eq!(bmi(50, 1.80), "Underweight");
+        assert_eq!(bmi(80, 1.80), "Normal");
+        assert_eq!(bmi(90, 1.80), "Overweight");
+        assert_eq!(bmi(110, 1.80), "Obese");
+    }
+
+    #[test]
+    fn return_expected() {
+        assert_eq!((), solution("abc", "c"));
+
+    }
 }
+
 
