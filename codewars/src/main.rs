@@ -53,6 +53,9 @@ fn boolean_to_string(b: bool) -> String {
     }
 }
 
+f
+
+
 use std::mem;
 
 fn dna_to_rna(dna: &str) -> String {
@@ -125,10 +128,36 @@ fn main() {
 }
 
 
+fn xo(string: &'static str) -> bool {
+    let x_count = string.matches('x').count();
+    let o_count = string.matches('o').count();
+}
+
+
+fn digitize(n: u64) -> Vec<u8> {
+    le
+}
+
+
 
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn test_fixed() {
+        assert_eq!(digitize(35231), vec![1,3,2,5,3]);
+        assert_eq!(digitize(0), vec![0]);
+    }
+    #[test]
+    fn returns_expected() {
+        assert_eq!(xo("xo"), true);
+        assert_eq!(xo("Xo"), true);
+        assert_eq!(xo("xxOo"), true);
+        assert_eq!(xo("xxxm"), false);
+        assert_eq!(xo("Oo"), false);
+        assert_eq!(xo("ooom"), false);
+    }
 
     #[test]
     fn example_stuff() {
