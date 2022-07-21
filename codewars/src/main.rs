@@ -1,69 +1,65 @@
+// fn digitize(n: u64) -> Vec<u8> {
 
-fn digitize(n: u64) -> Vec<u8> {
-    
-    let mut digits: Vec<u8>= Vec::new();
-    let mut n = n;
-    println!("{}", n);
-    loop {
-        digits.push((n % 10) as u8);
-        n = n/ 10;
+//     let mut digits: Vec<u8>= Vec::new();
+//     let mut n = n;
+//     println!("{}", n);
+//     loop {
+//         digits.push((n % 10) as u8);
+//         n = n/ 10;
 
-        if n < 1 {
-            break
-        }
-    }
-    
-    digits
- 
+//         if n < 1 {
+//             break
+//         }
+//     }
+
+//     digits
+
+// }
+
+fn answer_digitize(n: u64) -> Vec<u8> {
+    n.to_string()
+        .chars()
+        .map(|c| c.to_digit(10).unwrap() as u8)
+        .rev()
+        .collect()
 }
- 
- 
-fn answer_digitize(n: u64) -> Vec<u8>{
-
-    n.to_string().chars().map(|c| c.to_digit(10).unwrap() as u8 ).rev().collect()
-    
-}
-
 
 fn set_alarm(employed: bool, vacation: bool) -> bool {
-        
-        employed && !vacation
+    employed && !vacation
 }
 
 fn lovefunc(flower1: u16, flower2: u16) -> bool {
-    
     (flower1 + flower2) % 2 != 0
-
 }
 
-
 fn how_much_i_love_you(mut nb_petals: u16) -> &'static str {
-    let vec1 = vec!["I love you", "a little", "a lot", "passionately", "madly", "not at all"];
+    let vec1 = vec![
+        "I love you",
+        "a little",
+        "a lot",
+        "passionately",
+        "madly",
+        "not at all",
+    ];
     // let mut iter = vec1.iter();
-    while  nb_petals > 6 {
+    while nb_petals > 6 {
         let nb_petals = nb_petals - 5;
     }
-    vec1[(nb_petals-1) as usize]
+    vec1[(nb_petals - 1) as usize]
 }
 
 fn boolean_to_string(b: bool) -> String {
     match b {
         true => String::from("true"),
-        false => String::from("false")
+        false => String::from("false"),
     }
 }
 
-f
-
-
-use std::mem;
-
 fn dna_to_rna(dna: &str) -> String {
-        // let mut my_chars: Vec<_> = dna.chars().collect();
-        // dna.chars().map( |c| match c {'T' => 'U', k=>k}).collect()
+    // let mut my_chars: Vec<_> = dna.chars().collect();
+    // dna.chars().map( |c| match c {'T' => 'U', k=>k}).collect()
 
-        dna.replace("U", "T")
-
+    dna.replace("U", "T")
 }
 
 fn make_upper_case(s: &str) -> String {
@@ -76,30 +72,24 @@ fn bmi(weight: u32, height: f32) -> &'static str {
         0.0..=18.5 => "Underweight",
         18.6..=25.0 => "Normal",
         25.1..=30.0 => "Overweight",
-        _ => "Obese"
-    } 
+        _ => "Obese",
+    }
 }
 fn solution(word: &str, ending: &str) -> bool {
-
     let a = ending.len();
     let b = word.len();
     if (a > b) {
-        return false
+        return false;
     }
-    let section = &word[(b-a)..];
+    let section = &word[(b - a)..];
     println!("{} {}", section, a);
-    if section == ending{
-         true
+    if section == ending {
+        true
+    } else {
+        false
     }
-    
-    else {
-         false
-    }
-
 }
-fn positive_sum(slice: &[i32]) ->  i32 {
-
-
+fn positive_sum(slice: &[i32]) -> i32 {
     //better solution
     slice.iter().filter(|&x| x.is_positive()).sum()
 
@@ -117,28 +107,18 @@ fn positive_sum(slice: &[i32]) ->  i32 {
     // return positive_nums.iter().sum()
 }
 
-
-  
 fn main() {
-   
     // println!("{:?}", answer_digitize(234324));
     println!("{:?}", dna_to_rna("TREE"));
     println!("{:?}", solution("abc", "c"));
-
+    println!("{}", digitize(4));
 }
 
-
-fn xo(string: &'static str) -> bool {
-    let x_count = string.matches('x').count();
-    let o_count = string.matches('o').count();
+fn digitize(n: u64) {
+    let n_str = n.to_string();
+    let n_array = n_str.chars().collect();
+    return n_array;
 }
-
-
-fn digitize(n: u64) -> Vec<u8> {
-    le
-}
-
-
 
 #[cfg(test)]
 mod tests {
@@ -146,41 +126,44 @@ mod tests {
 
     #[test]
     fn test_fixed() {
-        assert_eq!(digitize(35231), vec![1,3,2,5,3]);
+        assert_eq!(digitize(35231), vec![1, 3, 2, 5, 3]);
         assert_eq!(digitize(0), vec![0]);
-    }
-    #[test]
-    fn returns_expected() {
-        assert_eq!(xo("xo"), true);
-        assert_eq!(xo("Xo"), true);
-        assert_eq!(xo("xxOo"), true);
-        assert_eq!(xo("xxxm"), false);
-        assert_eq!(xo("Oo"), false);
-        assert_eq!(xo("ooom"), false);
     }
 
     #[test]
     fn example_stuff() {
-        assert_eq!(boolean_to_string(true), "true", "When we pass in true, we want the string \"true\" as output");
-        assert_eq!(boolean_to_string(false), "false", "When we pass in false, we want the string \"false\" as output");
-        assert_eq!(boolean_to_string(false), "false", "When we pass in false, we want the string \"false\" as output");
+        assert_eq!(
+            boolean_to_string(true),
+            "true",
+            "When we pass in true, we want the string \"true\" as output"
+        );
+        assert_eq!(
+            boolean_to_string(false),
+            "false",
+            "When we pass in false, we want the string \"false\" as output"
+        );
+        assert_eq!(
+            boolean_to_string(false),
+            "false",
+            "When we pass in false, we want the string \"false\" as output"
+        );
     }
 
     #[test]
     fn some_examples() {
-        assert_eq!(positive_sum(&[1,2,3,4,5]), 15);
-        assert_eq!(positive_sum(&[1,-2,3,4,5]), 13);
-        assert_eq!(positive_sum(&[-1,2,3,4,-5]), 9);
+        assert_eq!(positive_sum(&[1, 2, 3, 4, 5]), 15);
+        assert_eq!(positive_sum(&[1, -2, 3, 4, 5]), 13);
+        assert_eq!(positive_sum(&[-1, 2, 3, 4, -5]), 9);
     }
-    
+
     #[test]
     fn empty_list() {
         assert_eq!(positive_sum(&[]), 0);
     }
-    
+
     #[test]
     fn all_negative() {
-        assert_eq!(positive_sum(&[-1,-2,-3,-4,-5]), 0);
+        assert_eq!(positive_sum(&[-1, -2, -3, -4, -5]), 0);
     }
 
     #[test]
@@ -195,12 +178,4 @@ mod tests {
         assert_eq!(bmi(90, 1.80), "Overweight");
         assert_eq!(bmi(110, 1.80), "Obese");
     }
-
-    #[test]
-    fn return_expected() {
-        assert_eq!((), solution("abc", "c"));
-
-    }
 }
-
-
