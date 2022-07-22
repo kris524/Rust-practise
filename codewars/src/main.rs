@@ -107,28 +107,43 @@ fn positive_sum(slice: &[i32]) -> i32 {
     // return positive_nums.iter().sum()
 }
 
+
+
 fn main() {
     // println!("{:?}", answer_digitize(234324));
     println!("{:?}", dna_to_rna("TREE"));
     println!("{:?}", solution("abc", "c"));
-    println!("{}", digitize(4));
+    println!("{:?}", digitize(443243));
 }
 
-fn digitize(n: u64) {
-    let n_str = n.to_string();
-    let n_array = n_str.chars().collect();
-    return n_array;
+fn digitize(n: u64) -> Vec<u32>{
+    n.to_string()
+        .chars()
+        .map(|c| c.to_digit(10).unwrap() )
+        .rev()
+        .collect()
+    // let n_str = n.to_string();
+    // let n_array = n_str.chars().map(|c| c.to_digit(10).unwrap()).rev().collect() 
+    
+    
+    //.to_digit(10).unwrap()
+    // let b: Vec<u8> = n_array.into_iter().map(|x| x as u8).collect();
+    
+}
+
+fn square_sum(vec: Vec<i32>) -> i32 {
+
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
-    #[test]
-    fn test_fixed() {
-        assert_eq!(digitize(35231), vec![1, 3, 2, 5, 3]);
-        assert_eq!(digitize(0), vec![0]);
-    }
+    // #[test]
+    // fn test_fixed() {
+    //     assert_eq!(digitize(35231), vec![1, 3, 2, 5, 3]);
+    //     assert_eq!(digitize(0), vec![0]);
+    // }
 
     #[test]
     fn example_stuff() {
