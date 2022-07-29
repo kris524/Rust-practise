@@ -107,8 +107,6 @@ fn positive_sum(slice: &[i32]) -> i32 {
     // return positive_nums.iter().sum()
 }
 
-
-
 fn main() {
     // println!("{:?}", answer_digitize(234324));
     println!("{:?}", dna_to_rna("TREE"));
@@ -116,34 +114,70 @@ fn main() {
     println!("{:?}", digitize(443243));
 }
 
-fn digitize(n: u64) -> Vec<u32>{
+fn digitize(n: u64) -> Vec<u32> {
     n.to_string()
         .chars()
-        .map(|c| c.to_digit(10).unwrap() )
+        .map(|c| c.to_digit(10).unwrap())
         .rev()
         .collect()
     // let n_str = n.to_string();
-    // let n_array = n_str.chars().map(|c| c.to_digit(10).unwrap()).rev().collect() 
-    
-    
+    // let n_array = n_str.chars().map(|c| c.to_digit(10).unwrap()).rev().collect()
+
     //.to_digit(10).unwrap()
     // let b: Vec<u8> = n_array.into_iter().map(|x| x as u8).collect();
-    
 }
 
 fn square_sum(vec: Vec<i32>) -> i32 {
     vec.iter().map(|x| x.pow(2)).sum()
 }
 
+fn validate_pin(pin: &str) -> bool {
+    if pin.len() == 4 || pin.len() == 6 {
+        let a = pin.parse::<u32>();
+        match a {
+            Ok(u32) => return true,
+            Err(_) => return false,
+        }
+        println!("{:?}", a);
+        return true;
+    } else {
+        false
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
-    // #[test]
-    // fn test_fixed() {
-    //     assert_eq!(digitize(35231), vec![1, 3, 2, 5, 3]);
-    //     assert_eq!(digitize(0), vec![0]);
-    // }
+    #[test]
+    fn invalid_length_tests() {
+        assert_eq!(validate_pin("1"), false);
+        assert_eq!(validate_pin("12"), false);
+        assert_eq!(validate_pin("123"), false);
+        assert_eq!(validate_pin("12345"), false);
+        assert_eq!(validate_pin("1234567"), false);
+        assert_eq!(validate_pin("-1234"), false);
+        assert_eq!(validate_pin("1.234"), false);
+        assert_eq!(validate_pin("-1.234"), false);
+        assert_eq!(validate_pin("00000000"), false);
+    }
+    #[test]
+    fn non_digit_chars_tests() {
+        assert_eq!(validate_pin("a234"), false);
+        assert_eq!(validate_pin(".234"), false);
+    }
+
+    #[test]
+    fn valid_pin_tests() {
+        assert_eq!(validate_pin("1234"), true);
+        assert_eq!(validate_pin("0000"), true);
+        assert_eq!(validate_pin("1111"), true);
+        assert_eq!(validate_pin("123456"), true);
+        assert_eq!(validate_pin("098765"), true);
+        assert_eq!(validate_pin("000000"), true);
+        assert_eq!(validate_pin("123456"), true);
+        assert_eq!(validate_pin("090909"), true);
+    }
 
     #[test]
     fn example_stuff() {
