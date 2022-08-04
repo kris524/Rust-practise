@@ -145,34 +145,70 @@ fn validate_pin(pin: &str) -> bool {
     }
 }
 
-
-
-fn open_or_senior(data: Vec<(i32, i32)>)-> Vec<String>  {
-
+fn open_or_senior(data: Vec<(i32, i32)>) -> Vec<String> {
     let mut output: Vec<String> = Vec::new();
-    
 
     for batch in data.iter() {
         println!("{:?}", batch.0);
         if batch.0 >= 55 && batch.1 > 7 {
             output.push("Senior".to_string())
-        }
-        else {
+        } else {
             output.push("Open".to_string())
         }
     }
-    return output
+    return output;
 }
 
+fn open_or_senior_2(data: Vec<(i32, i32)>) -> Vec<String> {
+    data.into_iter()
+        .map(|(age, handicap)| {
+            if age >= 55 && handicap > 7 {
+                "Senior"
+            } else {
+                "Open"
+            }
+            .to_string()
+        })
+        .collect()
+}
+
+fn open_or_senior_3(data: Vec<(i32, i32)>) -> Vec<String> {
+    // code here
+    data.iter()
+        .map(|&(x, y)| match (x >= 55, y > 7) {
+            (true, true) => String::from("Senior"),
+            _ => String::from("Open"),
+        })
+        .collect()
+}
+
+fn rps(p1: &str, p2: &str) -> &'static str  {
+    match (p1, p2) {
+        ("scissors", "paper") => "Player 1 won!",
+        ("paper", "scissors") => "Player 2 won!",
+        ("scissors", "rock") => "Player 2 won!",
+        ("rock", "scissors") => "Player 1 won!",
+        ("rock", "paper") =>  "Player 2 won!",
+        ("paper", "rock") =>  "Player 1 won!",
+        _ => "Draw!"
+    }
+}
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    
 
     #[test]
     fn returns_expected() {
-        assert_eq!(open_or_senior(vec![(45, 12), (55,21), (19, -2), (104, 20)]), vec!["Open", "Senior", "Open", "Senior"]);
-        assert_eq!(open_or_senior(vec![(3, 12), (55,1), (91, -2), (54, 23)]), vec!["Open", "Open", "Open", "Open"]);
+        assert_eq!(
+            open_or_senior(vec![(45, 12), (55, 21), (19, -2), (104, 20)]),
+            vec!["Open", "Senior", "Open", "Senior"]
+        );
+        assert_eq!(
+            open_or_senior(vec![(3, 12), (55, 1), (91, -2), (54, 23)]),
+            vec!["Open", "Open", "Open", "Open"]
+        );
     }
 
     #[test]
