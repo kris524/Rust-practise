@@ -182,22 +182,44 @@ fn open_or_senior_3(data: Vec<(i32, i32)>) -> Vec<String> {
         .collect()
 }
 
-fn rps(p1: &str, p2: &str) -> &'static str  {
+fn rps(p1: &str, p2: &str) -> &'static str {
     match (p1, p2) {
         ("scissors", "paper") => "Player 1 won!",
         ("paper", "scissors") => "Player 2 won!",
         ("scissors", "rock") => "Player 2 won!",
         ("rock", "scissors") => "Player 1 won!",
-        ("rock", "paper") =>  "Player 2 won!",
-        ("paper", "rock") =>  "Player 1 won!",
-        _ => "Draw!"
+        ("rock", "paper") => "Player 2 won!",
+        ("paper", "rock") => "Player 1 won!",
+        _ => "Draw!",
     }
+}
+
+fn bubble_sort(mut arr: Vec<i32>) -> Vec<i32>{
+    // for j in range(0, len(array)):
+
+    for i in 0..arr.len() {
+        for j in 0..arr.len() - i -1 {
+            println!("arr_j = {}", arr[j]);
+            println!("arr_j+1 = {}", arr[j+1]);
+            
+            if arr[j] > arr[j+1] {
+                let holder = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = holder;
+            }
+        }
+    }
+    return arr;
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
-    
+
+    #[test]
+    fn test_bubble_sort() {
+        assert_eq!(bubble_sort(vec![10, 2, 6, 3]), vec![2,3,6,10])
+    }
 
     #[test]
     fn returns_expected() {
