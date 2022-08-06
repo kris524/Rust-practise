@@ -201,12 +201,16 @@ fn bubble_sort(mut arr: Vec<i32>) -> Vec<i32>{
         for j in 0..arr.len() - i -1 {
             println!("arr_j = {}", arr[j]);
             println!("arr_j+1 = {}", arr[j+1]);
-            
+            //a smarter way
             if arr[j] > arr[j+1] {
-                let holder = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = holder;
+            arr.swap(j, j+1);
             }
+            //my way
+            // if arr[j] > arr[j+1] {
+            //     let holder = arr[j];
+            //     arr[j] = arr[j+1];
+            //     arr[j+1] = holder;
+            // }
         }
     }
     return arr;
@@ -217,7 +221,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_bubble_sort() {
+    fn test_bubble_sort() {         //[2,10,6,3]
         assert_eq!(bubble_sort(vec![10, 2, 6, 3]), vec![2,3,6,10])
     }
 
