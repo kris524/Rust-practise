@@ -197,7 +197,7 @@ fn rps(p1: &str, p2: &str) -> &'static str {
 fn bubble_sort(mut arr: Vec<i32>) -> Vec<i32>{
     // for j in range(0, len(array)):
 
-    for i in 0..arr.len() {
+    for i in 0..arr.len() { //0..2
         for j in 0..arr.len() - i -1 {
             println!("arr_j = {}", arr[j]);
             println!("arr_j+1 = {}", arr[j+1]);
@@ -221,7 +221,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_bubble_sort() {         //[2,10,6,3]
+    fn test_bubble_sort() {         //[2,6,3,10]
         assert_eq!(bubble_sort(vec![10, 2, 6, 3]), vec![2,3,6,10])
     }
 
