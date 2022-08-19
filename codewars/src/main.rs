@@ -194,6 +194,15 @@ fn rps(p1: &str, p2: &str) -> &'static str {
     }
 }
 
+fn arr(n: usize) -> Vec<u32> {
+    // the numbers 0 to n-1
+    let mut vec1 = Vec::new();
+    for i in 0..n {
+        vec1.push(i as u32)
+    }
+    return vec1
+}
+
 fn bubble_sort(mut arr: Vec<i32>) -> Vec<i32>{
     // for j in range(0, len(array)):
 
@@ -219,6 +228,13 @@ fn bubble_sort(mut arr: Vec<i32>) -> Vec<i32>{
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn arr_test() {
+        assert_eq!(arr(0), vec![]);
+        assert_eq!(arr(4), vec![0,1,2,3]);
+    }
+}
 
     #[test]
     fn test_bubble_sort() {         //[2,6,3,10]
@@ -314,5 +330,5 @@ mod tests {
         assert_eq!(bmi(80, 1.80), "Normal");
         assert_eq!(bmi(90, 1.80), "Overweight");
         assert_eq!(bmi(110, 1.80), "Obese");
-    }
 }
+
