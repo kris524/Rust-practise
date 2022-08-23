@@ -20,8 +20,11 @@ fn main() {
     handle.join().unwrap();
 
     let v = vec![1, 2, 3];
-
-    let handle2 = thread::spawn(|| {
-        println!("Heres a vector")
+                                                //let the closure take ownership of v,
+                                                // that means the main thread can no longer use v
+    let handle2 = thread::spawn(move || {
+        println!("Heres a vector {:?}", v)
     });
+
+    handle2.join().unwrap();
 }
