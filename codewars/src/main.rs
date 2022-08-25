@@ -206,6 +206,11 @@ fn find_average(slice: &[f64]) -> f64 {
     return sum/number_of_items as f64
 
 }
+
+fn fold_array(arr: &[i32], runs: usize) -> Vec<i32> {
+    todo!()
+}
+
 fn arr(n: usize) -> Vec<u32> {
     // the numbers 0 to n-1
     let mut vec1 = Vec::new();
@@ -243,6 +248,20 @@ fn bubble_sort(mut arr: Vec<i32>) -> Vec<i32> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[cfg(test)]
+
+    #[test]
+    fn basic() {
+        let input = [1, 2, 3, 4, 5];
+        assert_eq!(fold_array(&input, 1), [6, 6, 3]);
+        assert_eq!(fold_array(&input, 2), [9, 6]);
+        assert_eq!(fold_array(&input, 3), [15]);
+        
+        let input = [-9, 9, -8, 8, 66, 23];
+        assert_eq!(fold_array(&input, 1), [14, 75, 0]);
+    }
+}
 
     #[test]
     fn arr_test() {
