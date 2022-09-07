@@ -16,6 +16,11 @@
 
 // }
 
+fn high_and_low(numbers: &str) -> String {
+    String::new()
+
+}
+
 fn answer_digitize(n: u64) -> Vec<u8> {
     n.to_string()
         .chars()
