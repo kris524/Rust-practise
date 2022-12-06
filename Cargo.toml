@@ -1,2 +1,2 @@
 [workspace]
-members = [ "lifetimes", "hashmap", "ownership", "codewars", "vec", "concurrency"]
+members = [ "lifetimes", "hashmap", "ownership", "codewars", "vec", "concurrency", "builder"]
